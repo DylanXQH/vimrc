@@ -75,7 +75,13 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-"Always show current position
+" Display line number
+set nu
+
+" Do not show mode fields
+set noshowmode
+
+" Always show current position
 set ruler
 
 " Height of the command bar
@@ -237,6 +243,11 @@ let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
+" Split the current window horizontally and load a file with the current buffer's path
+map <leader><leader>s :sp <c-r>=expand("%:p:h")<cr>/
+
+" Split the current window vertically and load a file with the current buffer's path
+map <leader><leader>v :vsp <c-r>=expand("%:p:h")<cr>/
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
